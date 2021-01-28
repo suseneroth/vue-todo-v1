@@ -1,12 +1,22 @@
 <template>
-  <div id="app">
+    <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Start</router-link> |
+      <router-link to="/om">Om</router-link> |
+      <router-link to="/addtodo">Lägg till</router-link>
     </div>
     <router-view/>
+    
   </div>
 </template>
+<script>
+
+export default {
+  
+}
+ 
+
+</script>
 
 <style>
 #app {
@@ -27,6 +37,6 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #17A2B8;
 }
 </style>
