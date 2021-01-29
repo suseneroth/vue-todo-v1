@@ -17,25 +17,23 @@ export default new Vuex.Store({
       {
         name: "Cake",
         done: false
-      },
-  
-  ]
- 
+      }
+    ]
   },
   mutations: {
     addItem(state, item) {
       state.items.push(item)
     },
-    editItem(state, { item, name = item.name, done = item.done }) {      
+    editItem(state, { item, name = item.name, done = item.done }) {
       item.name = name;
-      item.done = done;    
+      item.done = done;
     },
     removeItem(state, item) {
       state.items.splice(state.items.indexOf(item), 1);
     }
   },
   actions: {
-    addItem({ commit }, item ) {
+    addItem({ commit }, item) {
       commit("addItem", {
         name: item,
         done: false

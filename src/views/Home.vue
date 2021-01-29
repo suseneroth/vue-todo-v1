@@ -1,28 +1,31 @@
 <template>
-    <div id="app">
-      <router-view/>
-        <b-jumbotron bg-variant="info" text-variant="white">
-          <template slot="header">
-            <b-container>Vuex ToDo App</b-container>
-          </template>
-          <template slot="lead">
-            <b-container>Built using Bootstrap-Vue.js</b-container>
-          </template>
-          <template slot="lead">
-            <b-container class="container-button">
-              <router-link to="/addtodo"><b-button>Lägg till</b-button></router-link>
-            </b-container>
-          </template>
-       </b-jumbotron>
+  <div id="app">
+   <b-jumbotron  bg-variant="info" text-variant="white">
+      <template slot="header">
+        <b-container>Vuex ToDo App</b-container>
+      </template>
+      <template slot="lead">
+        <b-container>Built using Bootstrap-Vue.js</b-container>
+      </template>
+    </b-jumbotron>
+    <b-container>
+      <div class="todo-page">
+        <h2>Shopping List</h2>
+        <hr>
+        <TodoList />
+      </div>
+    </b-container>
   </div>
 </template>
+
 <script>
-
-
-export default {
-  
- 
-}
+  import TodoList from '@/components/TodoList.vue'
+  export default {
+    name: 'TodoView',
+    components: {
+      TodoList
+    }
+  }
 </script>
 
 <style scoped>
