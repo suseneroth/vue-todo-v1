@@ -7,22 +7,28 @@ export default new Vuex.Store({
   state: {
     items: [
       {
-        name: "Milk",
+        name: "Gå ut med hunden",
+        author: "Susanne",
+        date: "datum",
         done: false
       },
       {
-        name: "Bread",
-        done: true
+        name: "Fika",
+        done: false
       },
       {
-        name: "Cake",
+        name: "Ringa Ludde",
+        done: false
+      },
+      {
+        name: "Plugga Vuejs",
         done: false
       }
     ]
   },
   mutations: {
     addItem(state, item) {
-      state.items.push(item)
+      state.items.unshift(item)
     },
     editItem(state, { item, name = item.name, done = item.done }) {
       item.name = name;

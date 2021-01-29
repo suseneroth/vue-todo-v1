@@ -11,6 +11,8 @@
         </b-col>
         <b-col cols="9">
           <span>{{ item.name }}</span>
+          <p>{{ item.author }}</p>
+          <p>{{ item.date }}</p>
         </b-col>
         <b-col cols="1">
           <b-button-close @click="removeItem(item)"></b-button-close>
@@ -40,8 +42,6 @@ import { mapActions } from 'vuex'
 </script>
 
 <style scoped>
-b-list-group-item {
 
-}
     
 </style>

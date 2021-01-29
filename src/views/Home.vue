@@ -2,15 +2,16 @@
   <div id="app">
    <b-jumbotron  bg-variant="info" text-variant="white">
       <template slot="header">
-        <b-container>Vuex ToDo App</b-container>
+        <b-container>Vad ska jag göra idag då?</b-container>
       </template>
       <template slot="lead">
-        <b-container>Built using Bootstrap-Vue.js</b-container>
+        <b-container>Dagens göromål</b-container>
       </template>
+      <b-button type="submit" variant="dark" to="/addtodo">Lägg till</b-button>
     </b-jumbotron>
-    <b-container>
+    <b-container class="container-lista">
       <div class="todo-page">
-        <h2>Shopping List</h2>
+        <h2>Att göra idag</h2>
         <hr>
         <TodoList />
       </div>
