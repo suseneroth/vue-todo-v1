@@ -1,19 +1,17 @@
 <template>
   <div class="todo-list">
-    <!-- start of to-do list -->
     <b-row>
       <b-col md="10" class="container-lista">
         <b-list-group>
-          <TodoItem v-for="(item, index) in items" :key="index" :item="item" />
+          <TodoItem v-for="(item, index) of todolist" :key="index" :item="item" />
         </b-list-group>
       </b-col>
     </b-row>
-    <!-- end of to-do list -->
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+// import { mapActions } from 'vuex';
 import TodoItem from './TodoItem.vue'
 
 export default {
@@ -28,21 +26,15 @@ export default {
     }
   },
   computed: {
-    ...mapState([
-      'items'
-    ])
+   todolist() {
+     return this.$store.state.items
+   }
   },
    methods: {
-    ...mapActions([
-      'addItem',
-    ]),
-    
-      
- onSubmit() {
+    onSubmit() {
       this.addItem(this.item)
       this.$router.push({ path : '/' }, this.item)
-      this.item=''; // Clear form after successful save 
-      
+      this.item=''; // Rensa formulär
     }
   }
 };
@@ -52,15 +44,22 @@ form {
   margin-bottom: 25px;
 }
 
+.todo-list {
+  margin-top: 40px;
+}
+
 .container-lista {
   margin: 0 auto;
 }
+
 .list-group-item {
   display: flex;
 }
+
 .list-group-item:hover{
   background-color: aliceblue;
 }
+
 .checked {
   font-style: italic;
   text-decoration: line-through !important;

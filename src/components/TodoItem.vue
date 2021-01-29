@@ -10,9 +10,12 @@
           </b-form-checkbox>
         </b-col>
         <b-col cols="9">
-          <span>{{ item.name }}</span>
-          <p>{{ item.author }}</p>
-          <p>{{ item.date }}</p>
+          <ul class="todo-list-item">
+            <li>Vad som ska göras: {{ item.name }}</li>
+            <li>Detaljer: {{ item.desc }}</li>
+            <li>Ska utföras av: {{ item.author }}</li>
+            <li>Inlagt: {{ new Date(item.date).toLocaleString() }}</li>
+          </ul>
         </b-col>
         <b-col cols="1">
           <b-button-close @click="removeItem(item)"></b-button-close>
@@ -42,6 +45,9 @@ import { mapActions } from 'vuex'
 </script>
 
 <style scoped>
-
+.todo-list-item {
+    list-style-type: none;
+    line-height: 1.8;
+}
     
 </style>

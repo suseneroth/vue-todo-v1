@@ -12,7 +12,6 @@
     <b-container class="container-lista">
       <div class="todo-page">
         <h2>Att göra idag</h2>
-        <hr>
         <TodoList />
       </div>
     </b-container>

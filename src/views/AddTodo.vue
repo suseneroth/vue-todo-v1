@@ -7,14 +7,31 @@
       <div class="container-addtodo">
         <b-form class="row" @submit.prevent="onSubmit">
           <b-col cols="10">
-    <!-- bind to local `item` state -->
             <b-form-input
               id="item"
               class="w-100"
               name="item"
               type="text"
               placeholder="Vad ska jag göra nu då?"
-              v-model="item"
+              v-model="name"
+              autocomplete="off"
+            ></b-form-input>
+            <b-form-input
+              id="item"
+              class="w-100"
+              name="item"
+              type="text"
+              placeholder="Vem ska göra det då?"
+              v-model="author"
+              autocomplete="off"
+            ></b-form-input>
+             <b-form-input
+              id="item"
+              class="w-100"
+              name="item"
+              type="text"
+              placeholder="Berätta mer i detajl."
+              v-model="desc"
               autocomplete="off"
             ></b-form-input>
           </b-col>
@@ -29,13 +46,14 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
-name: 'TodoAdd',
   data() {
     return {
-      item:''
+      name:'', //variabel
+      author: '',
+      desc: ''
     }
   },
   computed: {
@@ -44,25 +62,31 @@ name: 'TodoAdd',
     ])
   },
    methods: {
-    ...mapActions([
-      'addItem',
-    ]),
-    
-      
- onSubmit() {
-      this.addItem(this.item)
-      this.$router.push({ path : '/' }, this.item)
-      this.item=''; // Clear form after successful save 
-      
+    onSubmit() {
+      let newTodo = {
+        name: this.name,
+        author: this.author,
+        desc: this.desc,
+        date: Date.now(),
+        done: this.done
+      }
+      this.$store.commit('addItem', newTodo)
+      this.$router.push('/')
+      this.item=''; // rensa formulär
     }
   }
-};
+}
+
 </script>
 
 <style>
   .container-addtodo {
     margin: 0 auto;
-    max-width: 60%;
+    max-width: 80%;
+  }
+
+  .w-100 {
+    margin-top: 10px;
   }
 
 </style>

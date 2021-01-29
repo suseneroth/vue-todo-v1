@@ -3,25 +3,37 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+
+
 export default new Vuex.Store({
   state: {
     items: [
       {
         name: "Gå ut med hunden",
         author: "Susanne",
-        date: "datum",
+        desc: "Lorem ipsum",
+        date: Date.now(),
         done: false
       },
       {
-        name: "Fika",
+        name: "Handla mat",
+        author: "Susanne",
+        desc: "Lorem ipsum",
+        date: Date.now(),
         done: false
       },
       {
-        name: "Ringa Ludde",
+        name: "Sjunga en sång",
+        author: "Anna",
+        desc: "Lorem ipsum",
+        date: Date.now(),
         done: false
       },
       {
-        name: "Plugga Vuejs",
+        name: "Träna",
+        author: "Susanne",
+        desc: "Lorem ipsum",
+        date: Date.now(),
         done: false
       }
     ]
@@ -39,18 +51,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    addItem({ commit }, item) {
-      commit("addItem", {
-        name: item,
-        done: false
-      })
-    },
-    editItem({ commit }, { item, name }) {
-      commit("editItem", { item, name });
-    },
     toggleItem({ commit }, item) {
       commit("editItem", { item, done: !item.done });
-    },
-  }
+    }, // ersätt med commit, se additem i AddTodo, men var?
+  },
 });
 
