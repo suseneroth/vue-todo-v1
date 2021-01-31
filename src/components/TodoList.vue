@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex';
 import TodoItem from './TodoItem.vue'
 
 export default {
@@ -28,7 +27,9 @@ export default {
   computed: {
    todolist() {
      return this.$store.state.items
-   }
+   },
+   
+
   },
    methods: {
     onSubmit() {
@@ -45,7 +46,8 @@ form {
 }
 
 .todo-list {
-  margin-top: 40px;
+  margin: 30px 0 100px 0;
+
 }
 
 .container-lista {
@@ -57,7 +59,7 @@ form {
 }
 
 .list-group-item:hover{
-  background-color: aliceblue;
+  background-color: rgb(255, 215, 215);
 }
 
 .checked {
@@ -65,5 +67,14 @@ form {
   text-decoration: line-through !important;
   color: gray;
   background-color: #eeeeee;
+}
+
+.container-footer{
+  height: 100px;
+  width: 100vw;
+  margin-top: 30px;
+  background: #7A191F;
+  color: #ffffff;
+  z-index: 1;
 }
 </style>
